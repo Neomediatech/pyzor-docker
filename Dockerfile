@@ -2,8 +2,7 @@ FROM alpine
 
 LABEL maintainer="docker-dario@neomediatech.it"
 
-RUN apk update; apk add --no-cache razor python3 tzdata; rm -rf /usr/local/share/doc /usr/local/share/man; cp /usr/share/zoneinfo/Europe/Rome /etc/localtime
-COPY razor/razorsocket.py /razorsocket.py
-RUN chmod +x /razorsocket.py
-EXPOSE 9192
-CMD ["/razorsocket.py", "0.0.0.0", "9192"]
+RUN apk update; apk add --no-cache py-pip; pip install --no-cache-dir --upgrade pip; pip install --no-cache-dir pyzor; apk add --no-cache python3; cp -ar /usr/lib/python2.7/site-packages/pyzor* /usr/lib/python3.6/; sed -i 's/\.iteritems/\.items/' /usr/lib/python3.6/pyzor/client.py; rm -rf /usr/local/share/doc /usr/local/share/man
+COPY pyzor/pyzorsocket/pyzorsocket.py /pyzorsocket.py
+EXPOSE 5953
+CMD ["python3", "./pyzorsocket.py", "0.0.0.0", "5953"]
