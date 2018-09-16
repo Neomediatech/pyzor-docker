@@ -31,7 +31,7 @@ In this example i wrote a `0.5` weight. This allow you to evaluate if and how Py
 Putting `0.5` weight the range of scores you'll get is from `0.1` to `0.75`.
 
 You can see what happens using a command like `egrep "PYZOR(.*)\{count=.* wl=[[:digit:]]*\;\}" /var/log/rspamd/rspamd.log` to see the scores history.  
-Or you can use a command like `tail -f /var/log/rspamd/rspamd.log | egrep "PYZOR(.*)\{count=.* wl=[[:digit:]]*\;\}"` to see what's happen in realtime.
+Or you can use a command like `tail -f /var/log/rspamd/rspamd.log | egrep "PYZOR(.*)\{count=.* wl=[[:digit:]]*\;\}"` to see what happens in realtime.
 
 From [cgt manual](https://github.com/cgt/rspamd-plugins/issues/1#issuecomment-379147658):
 > Keep in mind that the Pyzor score is dynamic. The weight you set will be multiplied by a score set by the script depending on the number of spam/ham reports in Pyzor. You can see the algorithm used in [pyzor.lua](./pyzor.lua#L43-L51) I didn't put much thought into the algorithm, I just picked some numbers.
