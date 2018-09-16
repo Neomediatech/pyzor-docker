@@ -33,7 +33,7 @@ symbol "PYZOR" {
 In this example i wrote a `0.5` weight. This allow you to evaluate if and how Pyzor works on your environment.
 
 From [cgt manual](https://github.com/cgt/rspamd-plugins/issues/1#issuecomment-379147658):
-> Keep in mind that the Pyzor score is dynamic. The weight you set will be multiplied by a score set by the script depending on the number of spam/ham reports in Pyzor. You can see the algorithm used in [pyzor.lua](./pyzor.lua#L43) I didn't put much thought into the algorithm, I just picked some numbers.
+> Keep in mind that the Pyzor score is dynamic. The weight you set will be multiplied by a score set by the script depending on the number of spam/ham reports in Pyzor. You can see the algorithm used in [pyzor.lua](./pyzor.lua#L43-L51) I didn't put much thought into the algorithm, I just picked some numbers.
 
 After you monitored the behaviour for some hour, and you are satisfied of the results, you can increase the weight at about `2.0`, as @cgt suggested. Or even more, is up to you.
 
