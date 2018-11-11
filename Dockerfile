@@ -2,8 +2,8 @@ FROM alpine
 
 LABEL maintainer="docker-dario@neomediatech.it"
 LABEL it.neomediatech.pyzor.version="1.0.0"
-LABEL it.neomediatech.razor.build-time="2014-12-10"
-LABEL it.neomediatech.razor.pkg-url="https://pypi.org/project/pyzor/"
+LABEL it.neomediatech.pyzor.build-time="2014-12-10"
+LABEL it.neomediatech.pyzor.pkg-url="https://pypi.org/project/pyzor/"
 
 RUN apk update; apk add --no-cache py-pip; pip install --no-cache-dir --upgrade pip; pip install --no-cache-dir pyzor; \
     apk add --no-cache python3; cp -ar /usr/lib/python2.7/site-packages/pyzor* /usr/lib/python3.6/; \
