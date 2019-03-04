@@ -17,4 +17,4 @@ RUN apk update && apk upgrade && apk add --no-cache tzdata && cp /usr/share/zone
     
 COPY pyzor/pyzorsocket/pyzorsocket.py /pyzorsocket.py
 EXPOSE 5953
-CMD ["tini", "--", "python3", "./pyzorsocket.py", "0.0.0.0", "5953"]
+CMD ["tini", "-e", "143", "--", "python3", "./pyzorsocket.py", "0.0.0.0", "5953"]
