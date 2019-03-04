@@ -6,7 +6,7 @@ LABEL it.neomediatech.pyzor.build-time="2014-12-10"
 LABEL it.neomediatech.pyzor.pkg-url="https://pypi.org/project/pyzor/"
 
 RUN apk update && apk upgrade && apk add --no-cache tzdata && cp /usr/share/zoneinfo/Europe/Rome /etc/localtime && \
-    apk add --no-cache py-pip bash && \
+    apk add --no-cache py-pip bash tini && \
     pip install --no-cache-dir --upgrade pip && \ 
     pip install --no-cache-dir pyzor && \
     apk add --no-cache python3 && \
@@ -17,4 +17,4 @@ RUN apk update && apk upgrade && apk add --no-cache tzdata && cp /usr/share/zone
     
 COPY pyzor/pyzorsocket/pyzorsocket.py /pyzorsocket.py
 EXPOSE 5953
-CMD ["python3", "./pyzorsocket.py", "0.0.0.0", "5953"]
+CMD ["tini", "--", "python3", "./pyzorsocket.py", "0.0.0.0", "5953"]
