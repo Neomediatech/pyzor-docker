@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.9
 
 LABEL maintainer="docker-dario@neomediatech.it"
 LABEL it.neomediatech.pyzor.version="1.0.0"
