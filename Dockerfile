@@ -17,4 +17,5 @@ RUN apk update && apk upgrade && apk add --no-cache tzdata && cp /usr/share/zone
     
 COPY pyzor/pyzorsocket/pyzorsocket.py /pyzorsocket.py
 EXPOSE 5953
+HEALTHCHECK --interval=30s --timeout=30s --start-period=20s --retries=20 CMD nc -w 7 -zv 0.0.0.0 5953
 CMD ["tini", "-e", "143", "--", "python3", "./pyzorsocket.py", "0.0.0.0", "5953"]
