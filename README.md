@@ -6,7 +6,8 @@ This image contains parts of @cgt [rspamd-plugins work](https://github.com/cgt/r
 Pyzor will run as socket, exposed by pyzorsocket Python script.
 
 ## Usage
- - docker run -d -p 0.0.0.0:5953:5953 --name pyzor neomediatech/pyzor:latest
+ - **`docker run -d -p 127.0.0.1:5953:5953 --name pyzor neomediatech/pyzor:latest`**  
+   (or `docker run -d -p 0.0.0.0:5953:5953 --name pyzor neomediatech/pyzor:latest if you need to access it from outside host`)
  - point your mailserver to this container on port 5953
  
 ## Pyzor license
